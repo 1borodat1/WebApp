@@ -1,0 +1,22 @@
+﻿@model WebApp.Models.MainModel
+@{
+	Layout = "_Layout";
+}
+
+<h2>MainWithModel</h2>
+@using (Html.BeginForm("MainProcess", "Main", FormMethod.Post)) {
+	<div class="col-lg-5">
+		@Html.TextAreaFor(m => m.Text, new {
+			@class = "form-control", @rows = 10
+		})
+	</div>
+	<div class="col-lg-2">
+		<input type="submit" value="Lemmatize" id="Submit" class="btn btn-default" onclick="location.href='@Url.Action("Main", "Main")'" />
+	</div>
+	<div class="col-lg-5">
+		@Html.TextAreaFor(m => m.LemmatizedText, new {
+			@class = "form-control", @rows = 10
+		})
+	</div>
+}
+
